@@ -1,13 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ES">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="pag1.css" />
+    <script src="funcion.js"></script>
   </head>
   <body>
-    <h1>Pagina 1</h1>
+    <h1>Evolucion Lancer</h1>
 
+    <div>
+      <table id="tabla1" border="2">
+        <thead>
+          <tr style="font-size: 20px">
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Precio</th>
+            <th>Coche</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lancer Evo III</td>
+            <td>1999</td>
+            <td>25.000$</td>
+            <td><img src="img/evo3.jpg" alt="evo3" /></td>
+          </tr>
+          <tr>
+            <td>Lancer Evo IX</td>
+            <td>2008</td>
+            <td>45.000$</td>
+            <td><img src="img/evo9.jpg" alt="evo3" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="tabla2" border="2" style="display: none">
+        <thead>
+          <tr style="font-size: 20px">
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Precio</th>
+            <th>Coche</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ford</td>
+            <td>1999</td>
+            <td>25.000$</td>
+            <td><img src="img/evo3.jpg" alt="evo3" /></td>
+          </tr>
+          <tr>
+            <td>Ford</td>
+            <td>2008</td>
+            <td>45.000$</td>
+            <td><img src="img/evo9.jpg" alt="evo3" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <button id="btn" type="button" onclick="cambiarTable()">Tabla 2</button>
     <a href="inicio.html">Inicio</a>
   </body>
 </html>

@@ -3,25 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>autos</title>
+    <meta name="description" content="mdoelos de coches" />
     <link rel="stylesheet" href="/inicio.css" />
   </head>
   <body>
-    <h1>Mi primera web</h1>
+    <h1>Mitsubishi Lancer</h1>
     <!-- Parrafo -->
     <hr />
-    <p style="color: rgb(255, 94, 0)"><b>Animales</b></p>
 
     <br />
-    <a href="pag1.html">
-      <img src="/img/leon.jpg" alt="leon" title="LEON SENTADO" />
-    </a>
-    <br />
-    <button role="button">Click pag1</button>
-    <br />
-    <a href="pag1.html" target="_blank">ejemplo tag</a>
-    <br />
-    <div contenteditable="true">Escribe aqui</div>
+    <div>
+      <div class="imgcar">
+        <a href="pag1.html">
+          <img src="/img/lancer.jpg" alt="coche" title="Mitsubishi" />
+        </a>
+      </div>
+      <hr />
+      <div class="tab">
+        <button
+          class="tablinks"
+          id="uno"
+          onmouseover="openCity(event, 'Generaciones')"
+        >
+          Generaciones y diseño
+        </button>
+        <button
+          class="tablinks"
+          id="dos"
+          onmouseover="openCity(event, 'TransmisionRendimiento')"
+        >
+          Transmisión y rendimiento
+        </button>
+        <button
+          class="tablinks"
+          id="tres"
+          onmouseover="openCity(event, 'Versiones')"
+        >
+          Versiones
+        </button>
+      </div>
+    </div>
+
+    <div id="Generaciones" class="tabcontent">
+      <h3>Generaciones y diseño</h3>
+      <p>
+        El Mitsubishi Lancer X es la versión más reciente antes de que la
+        producción del modelo Lancer fuera detenida en varios mercados. Su
+        diseño es más moderno y estilizado en comparación con las generaciones
+        anteriores, manteniendo una apariencia agresiva y deportiva,
+        especialmente en las versiones más equipadas.
+      </p>
+    </div>
+
+    <div id="TransmisionRendimiento" class="tabcontent">
+      <h3>Transmisión y rendimiento</h3>
+      <p>
+        El Lancer X ofrecía transmisiones manuales de 5 y 6 velocidades, así
+        como opciones automáticas CVT (Transmisión variable continua) en algunos
+        modelos. Los modelos deportivos, como el Lancer Evolution X, presentaban
+        tracción total (AWD), mientras que las versiones más convencionales
+        solían ser tracción delantera (FWD).
+      </p>
+    </div>
+
+    <div id="Versiones" class="tabcontent">
+      <h3>Versiones</h3>
+      <ul>
+        <li>
+          Mitsubishi Lancer (versión estándar): Versiones de motorización más
+          modestas, destinadas a uso diario.
+        </li>
+        <li>
+          Mitsubishi Lancer Ralliart: Variante deportiva con un motor
+          turboalimentado y tracción total.
+        </li>
+        <li>
+          Mitsubishi Lancer Evolution X: La versión más deportiva, diseñada para
+          un rendimiento de alto nivel, con un motor turbo de 2.0 litros,
+          tracción total y suspensión deportiva.
+        </li>
+      </ul>
+    </div>
   </body>
+
+  <script>
+    function openCity(event, coche) {
+      var i, tabcontent, tablinks;
+
+      // Obtener todos los elementos con la clase "tabcontent"
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none"; // Ocultar el contenido de las pestañas
+      }
+
+      // Obtener todos los elementos con la clase "tablink"
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace("activa", ""); // Eliminar la clase "activa"
+      }
+
+      // Mostrar el contenido de la pestaña seleccionada
+      document.getElementById(coche).style.display = "block";
+
+      // Añadir la clase "activa" al enlace de la pestaña seleccionada
+      event.currentTarget.className += " activa";
+    }
+  </script>
 </html>
