@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+  </head>
+
+  <body>
+    <h2>JavaScript</h2>
+    <hr />
+    <div id="resultado"></div>
+    <button onclick="saludarr()">Pulsar</button>
+  </body>
+  <script>
+    let mensaje = "Aprendiendo a programar en JavaScript";
+    console.log(mensaje.includes("JavaScript"));
+    console.log(mensaje.includes("Java"));
+    console.log(mensaje.toLowerCase());
+    console.log(mensaje.toUpperCase());
+    console.log(mensaje.length);
+    console.log(mensaje.indexOf());
+
+    // Array de ciudades
+    var ciudades = [
+      "Madrid",
+      "Asturias",
+      "Valencia",
+      "Barcelona",
+      "Bilbao",
+      "Burgos",
+      "Alicante",
+      "Murcia",
+    ];
+
+    ciudades.forEach(function (ciudades, index) {
+      if (ciudades.includes("B")) {
+        console.log(ciudades.toUpperCase() + " Tamaño:" + ciudades.length);
+      }
+    });
+
+    //Ordenar alfabeticamente
+    for (let i = 0; i < ciudades.length; i++) {
+      for (let j = i + 1; j < ciudades.length; j++) {
+        if (ciudades[i] >= ciudades[j]) {
+          var aux = ciudades[i];
+          ciudades[i] = ciudades[j];
+          ciudades[j] = aux;
+        }
+      }
+      // console.log(ciudades[i]);
+      palabra = ciudades[i].substring(0, 1);
+      // console.log(palabra);
+    }
+
+    let inicial = ciudades.reduce(function (ini, ciudades) {
+      return ini + ciudades.charAt(0);
+    }, "");
+    // inicialString = ciudades.map((ciudad) => ciudad.charAt(0));
+    console.log(inicial);
+
+    ciudad = ciudades.filter(function (ciudades) {
+      return ciudades.toUpperCase();
+    });
+    console.log(ciudad);
+
+    let ciudades_nuevas = [
+      "Toledo",
+      "Bilbao",
+      "Salamanca",
+      "Madrid",
+      "Valladilid",
+    ];
+
+    const listado = function (nuevo, listado) {
+      if (!listado.includes(nuevo)) {
+        listado.push(nuevo);
+      }
+    };
+    ciudades_nuevas.forEach(function (ciudad) {
+      listado(ciudad, ciudades);
+    });
+    console.log(ciudades);
+
+    function saludarr() {
+      document.getElementById("resultado").textContent = "ew  ";
+    }
+  </script>
+</html>

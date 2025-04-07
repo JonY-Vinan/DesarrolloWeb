@@ -9,40 +9,48 @@
   <body>
     <h1>Formulario</h1>
     <hr />
-    <div class="formulario">
-      <form action="" method="get">
-        <label for="name">Nombre: </label>
-        <input type="text" name="nombre" id="nombre" />
-        <label>Edad:</label>
-        <input type="number" name="edad" id="edad" />
-        <label>Telefono:</label>
-        <input type="tel" name="telefono" id="telefono" />
-        <label>Email</label>
-        <input type="email" name="email" id="email" />
-        <br />
 
-        <div>
-          <label>Usuario:</label>
-          <br />
-          <label for="">Alumno</label>
-          <input type="radio" name="alumno" id="alumno" />
-          <label>Profesor</label>
-          <input type="radio" name="profesor" id="profesor" />
+    <div class="inicio" style="display: flex; width: 100%">
+      <div style="display: flex; width: 50%; flex-direction: column">
+        <h3>Curso de Programador</h3>
+        <p style="display: flex; text-align: left; width: 79%">
+          Aprender programación abre las puertas a un mundo lleno de creatividad
+          y oportunidades. Esta formación está diseñada para principiantes y
+          cubre desde los fundamentos hasta temas avanzados. Descubre lenguajes
+          clave como Python, JavaScript y más, mientras resuelves problemas
+          reales. Con énfasis en prácticas y proyectos, desarrollarás
+          habilidades esenciales para el desarrollo web, aplicaciones o ciencia
+          de datos, adaptándote a un sector en constante crecimiento y demanda
+          tecnológica.
+        </p>
+      </div>
+      <div>
+        <legend style="font-size: 20px"></legend>
+        <div class="datos">
+          <form id="radioForm" method="get">
+            <div class="part1">
+              <label for="name">Nombre: </label>
+              <input type="text" name="nombre" id="nombre" />
+              <label>Telefono:</label>
+              <input type="tel" name="telefono" id="telefono" />
+              <label>Email</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <button type="submit">Enviar</button>
+          </form>
         </div>
-        <div>
-          <label>Idiomas: </label>
-          <br />
-          <label for="">Español</label>
-          <input type="checkbox" name="espanol" id="espanol" />
-          <label>Ingles</label>
-          <input type="checkbox" name="ingles" id="ingles" />
-          <label>Japones</label>
-          <input type="checkbox" name="japones" id="japones" />
-        </div>
-        <button type="submit">Enviar</button>
-        <br />
-        <textarea name="datos" id="datos" cols="50" rows="10"></textarea>
-      </form>
+      </div>
     </div>
+    <div>
+      <label>Subir archivo:</label>
+      <input
+        type="file"
+        multiple
+        accept=".jpg"
+        name="documento"
+        id="documento"
+      />
+    </div>
+    <script src="js/formulario.js"></script>
   </body>
 </html>
