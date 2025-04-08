@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/Ejecicios.js"></script>
+  </head>
+  <body>
+    <div>
+      <h2>Contador de click</h2>
+      <hr />
+      <p id="contador">X</p>
+      <button type="button" onclick="contadorClick()">Haz click aqui</button>
+      <button type="reset" onclick="contadorCero()">Reset</button>
+    </div>
+    <div>
+      <h2>Conversor de Temperatura</h2>
+      <p id="resultado">X</p>
+      <input
+        type="number"
+        name="numero"
+        id="numero"
+        placeholder="Introduce una cantidad"
+      />
+      <select name="" id="opcion">
+        <option value="celsius_fahrenheit">Celsius a Fahrenheit</option>
+        <option value="fahrenheit_celsius">Fahrenheit a Celsius</option>
+        <option value="Kelvin_celsius">Kelvin a Celsius</option>
+        <option value="celsius_Kelvin">Celsius a Kelvin</option>
+      </select>
+      <button type="button" onclick="calcularTemperatura()">Calcualar</button>
+    </div>
+
+    <div>
+      <h3>Tareas</h3>
+      <input type="text" name="texto" id="texto" />
+      <ul id="lista"></ul>
+      <button type="button" id="anadir" onclick="anadirTarea()">
+        Añadir tarea
+      </button>
+    </div>
+
+    <div>
+      <h3>Calculadora</h3>
+      <div id="respuesta"></div>
+      <input type="number" name="texto" id="numero1" />
+      <input type="number" name="texto" id="numero2" />
+      <select name="operador" id="operador">
+        <option value="sumar">Suma</option>
+        <option value="restar">Resta</option>
+        <option value="multiplicar">Multiplicar</option>
+        <option value="dividir">Dividir</option>
+      </select>
+      <button type="button" id="anadir" onclick="ejecutar()">Calcular</button>
+    </div>
+
+    <div>
+      <h3>Calculadora con tabla</h3>
+      <div id="respuesta"></div>
+      <table id="tablaC"></table>
+      <select name="operador" id="operador">
+        <option value="sumar">Suma</option>
+        <option value="restar">Resta</option>
+        <option value="multiplicar">Multiplicar</option>
+        <option value="dividir">Dividir</option>
+      </select>
+      <button type="button" id="anadir" onclick="mostrarCalcularor()">
+        Calcular
+      </button>
+    </div>
+  </body>
+</html>
