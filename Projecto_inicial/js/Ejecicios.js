@@ -1,16 +1,23 @@
+import { calculadora } from "./calculadora.js";
+
 //Ejercicio contador de click
 let cont = 0;
+const bt = document.getElementById("numero");
+bt.addEventListener("click", contadorClick);
 function contadorClick() {
   cont++;
   return (document.getElementById(
     "contador"
   ).textContent = `Haz hecho click ${cont} veces`);
 }
+const boton = document.getElementById("resett");
+boton.addEventListener("click", contadorCero);
 function contadorCero() {
   cont = 0;
   return (document.getElementById("contador").textContent = cont);
 }
-
+const buton = document.getElementById("comprobar");
+buton.addEventListener("click", calcularTemperatura);
 //Ejercicio de conversor de temperatura
 function calcularTemperatura() {
   const numero = document.getElementById("numero").value;
@@ -43,23 +50,12 @@ function calcularTemperatura() {
   return (document.getElementById(
     "resultado"
   ).innerText = `Resultado ${selector.value}: ${resultado}`);
-
-  //   if (selector.value == "celsius") {
-  //     resultado = (num * 9) / 5 + 35;
-  //     document.getElementById(
-  //       "resultado"
-  //     ).innerText = `Resultado Cº: ${resultado}`;
-  //   } else {
-  //     resultado = ((num - 32) * 9) / 5;
-  //     document.getElementById(
-  //       "resultado"
-  //     ).innerText = `Resultado Fº: ${resultado}`;
-  //   }
 }
 
 // //Ejercicio Lista tareas simples
 var listaTarea = []; // Declarar fuera para mantener las tareas
-
+const bttn = document.getElementById("anadir");
+bttn.addEventListener("click", anadirTarea);
 function anadirTarea() {
   var tarea = document.getElementById("texto").value;
   var lista = document.getElementById("lista");
@@ -88,65 +84,50 @@ function anadirTarea() {
     lista.appendChild(li);
   });
 }
-
-//Ejecicio de calculador
-let respuesta = 0;
-var Calculadora = {
-  sumar: function (num1, num2) {
-    respuesta = num1 + num2;
-    return respuesta;
-  },
-  restar: function (num1, num2) {
-    respuesta = num1 - num2;
-    return respuesta;
-  },
-  multiplicar: function (num1, num2) {
-    respuesta = num1 * num2;
-    return respuesta;
-  },
-  dividir(a, b) {
-    if (b !== 0) {
-      return a / b;
-    } else {
-      return "No se puede dividir por cero";
-    }
-  },
-};
-const ejecutar = function () {
+const btn = document.getElementById("calcular");
+btn.addEventListener("click", function () {
   let num1 = parseFloat(document.getElementById("numero1").value);
   let num2 = parseFloat(document.getElementById("numero2").value);
   let opcion = document.getElementById("operador").value;
   let resp = document.getElementById("respuesta");
-  let r = 0;
 
-  // Ejecutamos la operación correspondiente dependiendo de la opción seleccionada
-  r = Calculadora[opcion](num1, num2);
-
-  // Crear un div para mostrar el resultado
+  let r = false;
+  r = calculadora[opcion](num1, num2);
   const div = document.createElement("div");
-  div.textContent = `Resultado ${opcion}: ${r}`;
+  div.textContent = calculadora[opcion](num1, num2)
+    ? `Resultado  ${opcion}: ${r}`
+    : r === false
+    ? ""
+    : `Resultado  ${opcion}: ${r}`;
   resp.appendChild(div);
-};
+});
 
-//Calcualdora con una tabla
+//Adivinanzá de números
+let btn_numero = document.getElementById("encontrar");
+btn_numero.addEventListener("click", adivinarNumero);
+let miNumero = document.getElementById("miNumero");
+const elNumero = Math.floor(Math.random() * (100 - 1 + 1) + 1);
+console.log(elNumero);
+function adivinarNumero() {
+  ///if (comprobar_numero(miNumero)) {
 
-function mostrarCalcularor() {
-  let tabla = document.getElementById("tablaC");
-  let col = 3;
-  let lineas = 3;
-  const colum = document.createElement("tr");
-  const fila = document.createElement("tb");
-
-  for (let index = 0; index < col; index++) {
-    const element = array[index];
+  const d = document.getElementById("resp");
+  if (parseInt(miNumero.value) === elNumero) {
+    d.textContent = "Felicidades has adivinado el numero XD";
+  } else {
+    d.textContent = "Sigue intentandolo";
   }
 
-  col.forEach((c, col) => {
-    colum.textContent = col;
-    tabla.appendChild(colum);
-  });
+  //}
 }
-// const ejecutar = function (){
-//     let opcion = document.getElementById("operador").value;
-//     respuesta =
+
+// function comprobar_numero(numero) {
+//   let correcto = false;
+//   if (isNaN(numero) || !isFinite(numero)) {
+//     window.alert("El campo no puede estar vacio");
+//   } else if (numero < 0 || numero > 101) {
+//     window.alert("Escribe un numero que este entre el 1 o 100");
+//   } else {
+//     return (correcto = true);
+//   }
 // }

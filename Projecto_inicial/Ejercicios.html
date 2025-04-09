@@ -4,18 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="js/Ejecicios.js"></script>
   </head>
   <body>
     <div>
-      <h2>Contador de click</h2>
-      <hr />
+      <h3>Contador de click</h3>
+
       <p id="contador">X</p>
-      <button type="button" onclick="contadorClick()">Haz click aqui</button>
-      <button type="reset" onclick="contadorCero()">Reset</button>
+      <button type="button" id="numero">Haz click aqui</button>
+      <button type="reset" id="resett">Reset</button>
     </div>
     <div>
-      <h2>Conversor de Temperatura</h2>
+      <hr />
+      <h3>Conversor de Temperatura</h3>
+
       <p id="resultado">X</p>
       <input
         type="number"
@@ -29,20 +30,22 @@
         <option value="Kelvin_celsius">Kelvin a Celsius</option>
         <option value="celsius_Kelvin">Celsius a Kelvin</option>
       </select>
-      <button type="button" onclick="calcularTemperatura()">Calcualar</button>
+      <button type="button" id="comprobar">Calcualar</button>
     </div>
 
     <div>
+      <hr />
       <h3>Tareas</h3>
+
       <input type="text" name="texto" id="texto" />
       <ul id="lista"></ul>
-      <button type="button" id="anadir" onclick="anadirTarea()">
-        Añadir tarea
-      </button>
+      <button type="button" id="anadir">Añadir tarea</button>
     </div>
 
     <div>
+      <hr />
       <h3>Calculadora</h3>
+
       <div id="respuesta"></div>
       <input type="number" name="texto" id="numero1" />
       <input type="number" name="texto" id="numero2" />
@@ -51,23 +54,18 @@
         <option value="restar">Resta</option>
         <option value="multiplicar">Multiplicar</option>
         <option value="dividir">Dividir</option>
+        <option value="modulo">Modulo</option>
       </select>
-      <button type="button" id="anadir" onclick="ejecutar()">Calcular</button>
+      <button type="button" id="calcular">Calcular</button>
     </div>
-
     <div>
-      <h3>Calculadora con tabla</h3>
-      <div id="respuesta"></div>
-      <table id="tablaC"></table>
-      <select name="operador" id="operador">
-        <option value="sumar">Suma</option>
-        <option value="restar">Resta</option>
-        <option value="multiplicar">Multiplicar</option>
-        <option value="dividir">Dividir</option>
-      </select>
-      <button type="button" id="anadir" onclick="mostrarCalcularor()">
-        Calcular
-      </button>
+      <hr />
+      <h3>Adivinanza de números</h3>
+      <label id="texto">Adivina el numero en 1 al 100</label>
+      <div id="resp"></div>
+      <input type="number" id="miNumero" />
+      <button type="button" id="encontrar">Comprobar</button>
     </div>
   </body>
+  <script type="module" src="js/Ejecicios.js"></script>
 </html>
