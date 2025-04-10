@@ -27,15 +27,17 @@ export const calculadora = {
     }
   },
   dividir(num1, num2) {
-    if (this.comprobar_num(num1) && this.comprobar_num(num2)) {
-      if (num2 !== 0) {
-        return num1 / num2;
-      } else {
-        return "No se puede dividir por cero";
-      }
-    } else {
-      return (bien = false);
-    }
+    return comprobarNumero(num1, num2);
+
+    // if (this.comprobar_num(num1) && this.comprobar_num(num2)) {
+    //   if (num2 !== 0) {
+    //     return num1 / num2;
+    //   } else {
+    //     return "No se puede dividir por cero";
+    //   }
+    // } else {
+    //   return (bien = false);
+    // }
   },
   modulo(num1, num2) {
     if (this.comprobar_num(num1) && this.comprobar_num(num2)) {
@@ -46,10 +48,32 @@ export const calculadora = {
   },
   comprobar_num(num) {
     if (isNaN(num) || !isFinite(num)) {
-      window.alert("introduce correctamente un numero");
       bien = false;
     } else {
       return (bien = true);
     }
   },
 };
+
+function comprobarNumero(a, b) {
+  try {
+    if (typeof a !== "number" || typeof b !== "number") {
+      throw new Error("El tipo debe ser numerico");
+    }
+
+    if (b === 0) {
+      throw new Error("La divicion por cero no esta permitida");
+    }
+    const resultado = a / b;
+    if (!isFinite(resultado)) {
+      throw new Error("Resultado no es un numero infinito");
+    }
+    if (b === 0) {
+      resultado = 0;
+    } else {
+      return resultado;
+    }
+  } catch (error) {
+    console.error(`"Ocurrio un error: ${error.message}`);
+  }
+}

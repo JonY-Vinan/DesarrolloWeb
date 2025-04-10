@@ -37,7 +37,15 @@
       <hr />
       <h3>Tareas</h3>
 
-      <input type="text" name="texto" id="texto" />
+      <input
+        type="text"
+        name="texto"
+        id="texto"
+        maxlength="40"
+        placeholder="Introduce una tarea"
+      />
+      <input type="datetime-local" name="fecha" id="fecha" />
+
       <ul id="lista"></ul>
       <button type="button" id="anadir">Añadir tarea</button>
     </div>
@@ -62,10 +70,26 @@
       <hr />
       <h3>Adivinanza de números</h3>
       <label id="texto">Adivina el numero en 1 al 100</label>
+      <br />
+      <label id="intentos">Intentos 0</label>
       <div id="resp"></div>
       <input type="number" id="miNumero" />
       <button type="button" id="encontrar">Comprobar</button>
+      <button type="button" id="otronumero">Reiniciar</button>
+    </div>
+    <div>
+      <hr />
+      <h3>Tabla de multiplicar</h3>
+      <label for="numero">Introduzca un número: </label>
+      <input type="number" name="numero" id="num" />
+      <button id="ejecutar">Crear la tabla</button>
+      <div id="para_tabla"></div>
     </div>
   </body>
-  <script type="module" src="js/Ejecicios.js"></script>
+  <script type="module" src="js/Ejecicio1.js"></script>
+  <script type="module" src="js/Ejecicio2.js"></script>
+  <script type="module" src="js/Ejecicio3.js"></script>
+  <script type="module" src="js/Ejecicio4.js"></script>
+  <script type="module" src="js/Ejecicio5.js"></script>
+  <script type="module" src="js/Ejecicio6.js"></script>
 </html>
