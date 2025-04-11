@@ -1,12 +1,17 @@
 // //Ejercicio Lista tareas simples
 var listaTarea = []; // Declarar fuera para mantener las tareas
+class Tarea {
+  constructor(texto, fecha) {
+    (this.texto = texto), (this.fecha = fecha);
+  }
+}
 
 const bttn = document.getElementById("anadir");
 bttn.addEventListener("click", anadirTarea);
 function anadirTarea() {
-  var tarea = document.getElementById("texto").value;
-  var fecha = document.getElementById("fecha").value;
-  var lista = document.getElementById("lista");
+  let tarea = document.getElementById("texto").value;
+  let fecha = document.getElementById("fecha").value;
+  let lista = document.getElementById("lista");
   if (tarea.trim() === "") {
     alert("No puedes añadir tarea vacía");
   } else {
