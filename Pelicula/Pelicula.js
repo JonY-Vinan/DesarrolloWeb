@@ -48,7 +48,7 @@ export class Pelicula {
   generarIdPelicula(titulo) {
     let codigo = Math.floor(Math.random() * (9999999 - 1 + 1) + 1);
     let codigotitulo = titulo.slice(0, 2).toLowerCase();
-    let codigoStr = codigo.toString().padStart(5, "0");
+    let codigoStr = codigo.toString().padStart(7, "0");
     let idPelicula = `${codigotitulo}${codigoStr}`;
     return idPelicula;
   }

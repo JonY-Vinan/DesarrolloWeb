@@ -1,4 +1,35 @@
 import { Pelicula } from "./Pelicula.js";
+import { baseDatos } from "./baseDatos.js";
+let listaPeliculas = [];
+
+let misPeliculas = JSON.parse(localStorage.getItem("peliculas")) || [];
+function cargarMisPeliculas() {
+  const tabla = document.getElementById("tabla_peliculas");
+  tabla.innerHTML = ""; // Limpiar tabla
+
+  misPeliculas.forEach((peli) => {
+    const row = document.createElement("tr");
+    console.log(peli);
+
+    // Asegúrate de que las propiedades coincidan con tu clase Pelicula
+    row.innerHTML = `<td>${peli.id}</td>
+            <td>${peli.titulo}</td>
+            <td>${peli.director}</td>
+            <td>${peli.anioEstreno}</td>
+            <td>${peli.paisOrigen}</td>
+            <td>${peli.genero}</td>
+            <td>${peli.calificacion}</td>
+        `;
+
+    tabla.appendChild(row);
+  });
+}
+
+// Llamar a mostrarPeliculas al cargar la página
+document.getElementById("actualizar_tabla").addEventListener("click", () => {
+  baseDatos(cargarMisPeliculas);
+  console.log("no carga nada");
+});
 
 function seleccionarPais() {
   let p = Pelicula.verificarPaisYGenero();
@@ -17,7 +48,7 @@ function seleccionarPais() {
       // opciong.value = p[i].generos;
       genero.appendChild(opciong);
     }
-    opcion.value = p[i];
+
     origen.appendChild(opcion);
 
     console.log(opcion);
@@ -27,13 +58,6 @@ seleccionarPais();
 
 const boton = document.getElementById("btn");
 boton.addEventListener("click", añadirPelicula);
-// const peli = new Pelicula("holaaaa", "alex", 2025, "ecuador", "terror", 8);
-
-function ejecutar() {
-  console.log(peli);
-  console.table(peli);
-  console.log(Pelicula.pais());
-}
 
 function añadirPelicula() {
   const titulo = document.getElementById("titulo").value;
@@ -51,7 +75,30 @@ function añadirPelicula() {
     calificacion
   );
 
+  listaPeliculas.push(nPelicula);
+  localStorage.setItem("peliculas", JSON.stringify(listaPeliculas));
+  console.log(listaPeliculas);
+  creaFila();
   // let resultado = document.getElementById("resultado");
   // resultado.textContent = nPelicula;
   console.log(nPelicula);
+}
+
+function creaFila(pelicula) {
+  let tablaPelicula = document.getElementById("tabla_peliculas");
+  tablaPelicula.innerHTML = "";
+  for (let indice = 0; indice < listaPeliculas.length; indice++) {
+    let fila = document.createElement("tr");
+
+    fila.innerHTML = `<th scope="row">${listaPeliculas[indice].id}</th>
+    <td>${listaPeliculas[indice].titulo}</td>
+    <td>${listaPeliculas[indice].director}</td>
+    <td>${listaPeliculas[indice].anioEstreno}</td>
+    <td>${listaPeliculas[indice].paisOrigen}</td>
+    <td>${listaPeliculas[indice].genero}</td>
+    <td>${listaPeliculas[indice].calificacion}</td>`;
+
+    console.log(fila);
+    tablaPelicula.appendChild(fila);
+  }
 }
