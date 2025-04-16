@@ -45,7 +45,6 @@ function anadirFila() {
     let fila = document.createElement("tr");
     let btn1 = document.createElement("td");
     let btn2 = document.createElement("td");
-    console.log(listadoAlumno);
 
     let almn = listadoAlumno[indice];
     fila.innerHTML = "";
@@ -63,8 +62,6 @@ function anadirFila() {
     tablaAlumnos.appendChild(fila);
     listadoAlumno.push(listadoAlumno[indice]);
   }
-  // listadoAlumno.push((listadoAlumno[3].email = "ggg"));
-  // let otro = obtenerDatos(dni: '12345678P', nombre: 'a', apellido: 'a', edad: '23', curso: 'Informatica'. email: 'ecua@gmail.com')
 }
 
 function inicioTabla(listadoAlumno) {
