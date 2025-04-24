@@ -1,0 +1,23 @@
+body {
+  background-color: rgb(233, 254, 255);
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  color: #65e04a;
+  background-color: #5f705b;
+  font-family: sans-serif;
+}
+#miSelect {
+  /* visibility: hidden; */
+  position: absolute;
+  pointer-events: none;
+  z-index: -1; /* Lo coloca detrás de otros elementos */
+}
+
+.dropdown:hover #nombre {
+  visibility: visible;
+  pointer-events: all;
+  z-index: 1; /* Lo coloca por encima de otros elementos */
+}

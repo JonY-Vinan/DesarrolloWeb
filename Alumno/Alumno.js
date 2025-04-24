@@ -8,7 +8,7 @@ export class Alumno {
   }
 
   static cursos() {
-    return ["Informatica", "Medicina", "Fontanero", "Pitor", "Cocinero"];
+    return ["Informatica", "Medicina", "Fontanero", "Pintor", "Cocinero"];
   }
 
   validarDni(dni) {
@@ -38,5 +38,9 @@ export class Alumno {
 
   static resumen(dni, nombre, apellido, edad, curso) {
     return `El DNI: ${dni} del alumno ${nombre} ${apellido} de ${edad} años que ahora esta inscrito en el curso de ${curso}`;
+  }
+
+  static anadir(nombre, apellido, curso) {
+    return `El alumno ${nombre} ${apellido} inscrito en el curso de ${curso}`;
   }
 }

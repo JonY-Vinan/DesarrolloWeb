@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado Tareas</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1>Listado tareas</h1>
+    <div class="primera_fila">
+      <label for="texto_tarea"></label>
+      <input
+        type="text"
+        name="texto_tarea"
+        id="tarea_nueva"
+        maxlength="40"
+        placeholder="Introduce nueva tarea"
+      />
+      <select name="prioridad" id="selector_prioridades">
+        <option value="muy_baja">Tarea poco importante</option>
+        <option value="baja">Tarea Normal</option>
+        <option value="media">Tarea Importante</option>
+        <option value="alta">Tarea Urgente</option>
+      </select>
+    </div>
+    <div class="segunda_fila">
+      <input type="datetime-local" id="momento" />
+      <button type="button" id="aniadir_tarea">Añadir</button>
+    </div>
+    <h3>Tareas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Fecha</th>
+          <th scope="col">Tarea</th>
+          <th scope="col">Borrar</th>
+          <th scope="col">Ejecutada</th>
+        </tr>
+      </thead>
+      <tbody id="tabla_tareas"></tbody>
+    </table>
+  </body>
+  <script type="module" src="index.js"></script>
+</html>

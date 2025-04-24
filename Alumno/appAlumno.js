@@ -41,26 +41,31 @@ cargarCursos();
 function anadirFila() {
   let tablaAlumnos = document.getElementById("tabla_alumnos");
   tablaAlumnos.innerHTML = "";
+
   for (let indice = 0; indice < listadoAlumno.length; indice++) {
+    let almn = listadoAlumno[indice];
+
     let fila = document.createElement("tr");
+    fila.className = almn.curso; // Aplica la clase del curso al <tr>
+
+    fila.innerHTML = `
+      <th scope="row">${almn.dni}</th>
+      <td>${almn.nombre}</td>
+      <td>${almn.apellido}</td>
+      <td>${almn.edad}</td>
+      <td>${almn.curso}</td>
+    `;
+
     let btn1 = document.createElement("td");
     let btn2 = document.createElement("td");
-
-    let almn = listadoAlumno[indice];
-    fila.innerHTML = "";
-    btn1.innerHTML = "";
-    btn2.innerHTML = "";
-    fila.innerHTML = `<th scope="row">${listadoAlumno[indice].dni}</th>
-      <td>${listadoAlumno[indice].nombre}</td>
-      <td>${listadoAlumno[indice].apellido}</td>
-      <td>${listadoAlumno[indice].edad}</td>
-      <td>${listadoAlumno[indice].curso}</td>`;
+    let btn3 = document.createElement("td");
     btn1.appendChild(botonResumen(almn));
+    btn2.appendChild(botonBorrar(almn)); // Eliminar "indice" aquí, no es necesario
+    btn3.appendChild(botonAnadirCurso(almn));
     fila.appendChild(btn1);
-    btn2.appendChild(botonBorrar(almn), indice);
     fila.appendChild(btn2);
+    fila.appendChild(btn3);
     tablaAlumnos.appendChild(fila);
-    listadoAlumno.push(listadoAlumno[indice]);
   }
 }
 
@@ -84,8 +89,11 @@ function inicioTabla(listadoAlumno) {
   resumen.innerText = `Ver resumen`;
   let borrar = document.createElement("th");
   borrar.innerText = `Borrar`;
+  let anadir = document.createElement("th");
+  anadir.innerText = `Añadir`;
   fila.appendChild(resumen);
   fila.appendChild(borrar);
+  fila.appendChild(anadir);
   inicio.appendChild(fila);
   tabla.appendChild(inicio);
 }
@@ -123,11 +131,35 @@ function botonResumen(listadoAlumno) {
   return btnResumen;
 }
 
+function botonAnadirCurso(alumno) {
+  let btnAnadir = document.createElement("button");
+  btnAnadir.innerHTML = "";
+  btnAnadir.id = "anadir";
+  btnAnadir.textContent = "Añadir";
+  btnAnadir.addEventListener("click", function () {
+    // let fila = document.getElementById("tabla_alumnos");
+    let filaAlumno = document.getElementsByClassName(alumno.curso);
+
+    for (let fila of filaAlumno) {
+      fila.setAttribute("inscrito", "success"); // Clase que aplicará line-through, etc.
+    }
+
+    const div = document.getElementById("alumnoResumen");
+    div.innerHTML = "";
+    let resumen = Alumno.anadir(alumno.nombre, alumno.apellido, alumno.curso);
+    console.log(resumen);
+    div.append(resumen);
+  });
+
+  return btnAnadir;
+}
+
 function botonBorrar(alumno, index) {
-  let btnResumen = document.createElement("button");
-  btnResumen.innerHTML = "";
-  btnResumen.textContent = "Borrar";
-  btnResumen.addEventListener("click", function () {
+  let btnBorrar = document.createElement("button");
+  btnBorrar.innerHTML = "";
+  btnBorrar.id = "borrar";
+  btnBorrar.textContent = "Borrar";
+  btnBorrar.addEventListener("click", function () {
     if (
       confirm(
         `¿Estás seguro de querer borrar a ${alumno.nombre} ${alumno.apellido}?`
@@ -144,5 +176,5 @@ function botonBorrar(alumno, index) {
     }
   });
 
-  return btnResumen;
+  return btnBorrar;
 }

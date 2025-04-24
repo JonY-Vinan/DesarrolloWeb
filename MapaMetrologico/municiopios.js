@@ -1,6 +1,7 @@
 import { recogerDatos } from "./servidorMap.js";
 let provincias = [];
 let listaProvincias = [];
+let munucipio = [];
 async function pargarProvincias() {
   provincias = await recogerDatos();
   console.log(provincias);
@@ -54,9 +55,9 @@ function cargarProvincias() {
         existe = false;
         break;
       } else {
-        if (provincias[index].provincia == "A CORU�A") {
-          provincias[index].provincia = "A CORUÑA";
-        }
+        // if (provincias[index].provincia == "A CORU�A") {
+        //   provincias[index].provincia = "A CORUÑA";
+        // }
         listaProvincias.push(provincias[index].provincia);
         existe = true;
         break;
@@ -87,13 +88,38 @@ function cargarNombre() {
   let opc2 = document.createElement("option");
   opc2.innerHTML = "";
   opc2.innerText = "";
-  for (let i = 0; i < listaProvincias.length; i++) {
-    for (let j = 0; j < provincias.length; j++) {
-      if (provincias[j].provincia === p) {
-        opc2 = document.createElement("option");
-        opc2.innerText = provincias[j].nombre;
-        nombre.appendChild(opc2);
-      }
+  // for (let i = 0; i < listaProvincias.length; i++) {
+  for (let j = 0; j < provincias.length; j++) {
+    if (provincias[j].provincia === p) {
+      opc2 = document.createElement("option");
+      opc2.value = provincias[j].nombre;
+      opc2.innerText = provincias[j].nombre;
+      nombre.appendChild(opc2);
+      munucipio.push(provincias[j]);
     }
   }
+  // }
+}
+
+document.getElementById("nombre").addEventListener("click", cargarTabla);
+
+function cargarTabla() {
+  let tabla = document.getElementById("tabla");
+  let inicio = document.createElement("inicioTabla");
+  inicio.innerHTML = "";
+  inicio.innerText = "";
+  let m = munucipio[0];
+  let fila = document.createElement("tr");
+  fila.innerHTML = "";
+
+  for (let clave in m) {
+    console.log("2");
+    let columna = document.createElement("th");
+    columna.innerHTML = "";
+    columna.innerText = clave;
+    fila.appendChild(columna);
+    inicio.appendChild(fila);
+  }
+
+  tabla.appendChild(inicio);
 }

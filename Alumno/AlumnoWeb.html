@@ -4,33 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../Pelicula/pelicula.css">
+    <link rel="stylesheet" href="alumno.css">
   </head>
   <body>
     <h2>Nuevo Alumno</h2>
-    <hr />
+
     <div>
-      <div class="formulario">
-        <form action="">
-          <label>DNI: </label>
-          <input type="text" name="dni" id="dni" maxlength="9" />
-          <label>Nombre: </label>
-          <input type="text" name="nombre" id="nombre" />
-          <label>Apellido</label>
-          <input type="text" name="apellido" id="apellido" />
-          <label>Edad: </label>
-          <input type="text" name="edad" id="edad" />
-          <label>Cursos</label>
-          <select name="cursos" id="cursos"></select>
-        </form>
-        <button type="button"  id="nuevo_alumno">Crear</button>
-        <button type="button" id="cargar_alumnos">Cargar alumnos</button>
-      </div>
-      <hr>
+      <div >
+        <div class="formulario">
+          <form action="">
+            <label>DNI: </label>
+            <input type="text" name="dni" id="dni" maxlength="9" />
+            <label>Nombre: </label>
+            <input type="text" name="nombre" id="nombre" />
+            <label>Apellido</label>
+            <input type="text" name="apellido" id="apellido" />
+            <label>Edad: </label>
+            <input type="text" name="edad" id="edad" />
+            <label>Cursos</label>
+            <select name="cursos" id="cursos"></select>
+          </form>
+        </div>
+        <div class="botones">
+           <button type="button"  id="nuevo_alumno">Crear</button>
+           <button type="button" id="cargar_alumnos">Cargar alumnos</button>
+       </div>
+        </div>
+   
       <div id="alumno">
         <table id="tabla">
           <thead id="tabla_inicio">
-
           </thead>
           <tbody id="tabla_alumnos"></tbody>
         </table>
